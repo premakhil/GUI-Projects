@@ -15,38 +15,10 @@ box.grid(row=0,column=0,columnspan=3)
 def click(a):
     current=box.get()
 
+    box.delete(0,last=END)
+    box.insert(0,str(current)+str(a))
+
     
-
-    if a=='+':
-        add.append(int(current))
-        box.delete(0,last=END)
-        box.insert(0,str(current)+str(a))
-        
-        
-    elif a=='-':
-        s.append(int(current))
-        box.delete(0,last=END)
-        box.insert(0,str(current)+str(a))
-        
-
-    elif a=='*':
-        m.append(int(current))
-        box.delete(0,last=END)
-        box.insert(0,str(current)+str(a))
-        
-
-    elif a=='/':
-        d.append(int(current))
-        box.delete(0,last=END)
-        box.insert(0,str(current)+str(a))
-        
-    
-
-    else:
-        box.delete(0,last=END)
-        box.insert(0,str(current)+str(a))
-
-    print(add,s,m,d)
 
 def clear():
     box.delete(0,last=END)
