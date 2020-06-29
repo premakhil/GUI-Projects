@@ -7,17 +7,46 @@ root=Tk()
 root.title('Calculator')
 
 
-add,s,m,d=[],[],[],[]
+
 box=Entry(root,width=35,borderwidth=5)
 box.grid(row=0,column=0,columnspan=3)
 
 
 def click(a):
     current=box.get()
-
     box.delete(0,last=END)
     box.insert(0,str(current)+str(a))
 
+
+
+def equal():
+    f=box.get()
+    box.delete(0,last=END)
+    box.insert(0,final+int(f))
+
+    
+
+
+
+    
+# def add():
+    
+#     n=box.get()
+#     box.delete(0,last=END)
+#     global f_num
+#     f_num= int(n)
+#     box.delete(0,last=END)
+
+def add():
+    global final
+    final=0
+    n=box.get()
+    box.delete(0,last=END)
+    final+=int(n)
+
+
+
+    
     
 
 def clear():
@@ -37,8 +66,8 @@ b6=Button(root,text='6',padx=30,pady=30,command=lambda : click(6))
 b7=Button(root,text='7',padx=30,pady=30,command=lambda : click(7))
 b8=Button(root,text='8',padx=30,pady=30,command=lambda : click(8))
 b9=Button(root,text='9',padx=30,pady=30,command=lambda : click(9))
-bequal=Button(root,text='=',padx=105,pady=30,command=lambda : click('='))
-bplus=Button(root,text='+',padx=30,pady=30,command=lambda : click('+'))
+bequal=Button(root,text='=',padx=105,pady=30,command=equal)
+bplus=Button(root,text='+',padx=30,pady=30,command= add)
 bminus=Button(root,text='-',padx=30,pady=30,command=lambda : click('-'))
 bmul=Button(root,text='*',padx=30,pady=30,command=lambda : click('*'))
 bdiv=Button(root,text='/',padx=30,pady=30,command=lambda : click('/'))
