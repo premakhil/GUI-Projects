@@ -8,7 +8,7 @@ root.title('Calculator')
 
 
 
-box=Entry(root,width=35,borderwidth=5)
+box=Entry(root,width=35,borderwidth=15)
 box.grid(row=0,column=0,columnspan=3)
 
 
@@ -20,33 +20,58 @@ def click(a):
 
 
 def equal():
-    f=box.get()
+    second_num=box.get()
     box.delete(0,last=END)
-    box.insert(0,final+int(f))
-
     
+    if math=='addition':
+
+        box.insert(0,final+int(second_num))
+
+    elif math=='subtraction':
+        box.insert(0,final-int(second_num))
 
 
+    elif math=='multiplication':
+        box.insert(0,final*int(second_num))
 
-    
-# def add():
-    
-#     n=box.get()
-#     box.delete(0,last=END)
-#     global f_num
-#     f_num= int(n)
-#     box.delete(0,last=END)
+    elif math=='division':
+        box.insert(0,final/int(second_num))
+
+
 
 def add():
     global final
-    final=0
+    global math
+    math='addition'
     n=box.get()
     box.delete(0,last=END)
-    final+=int(n)
+    final=int(n)
+
+def sub():
+    global final
+    global math
+    math='subtraction'
+    n=box.get()
+    box.delete(0,last=END)
+    final=int(n)
+
+def mul():
+    global final
+    global math
+    math='multiplication'
+    n=box.get()
+    box.delete(0,last=END)
+    final=int(n)
+
+def div():
+    global final
+    global math
+    math='division'
+    n=box.get()
+    box.delete(0,last=END)
+    final=int(n)
 
 
-
-    
     
 
 def clear():
@@ -68,8 +93,8 @@ b8=Button(root,text='8',padx=30,pady=30,command=lambda : click(8))
 b9=Button(root,text='9',padx=30,pady=30,command=lambda : click(9))
 bequal=Button(root,text='=',padx=105,pady=30,command=equal)
 bplus=Button(root,text='+',padx=30,pady=30,command= add)
-bminus=Button(root,text='-',padx=30,pady=30,command=lambda : click('-'))
-bmul=Button(root,text='*',padx=30,pady=30,command=lambda : click('*'))
+bminus=Button(root,text='-',padx=30,pady=30,command=sub)
+bmul=Button(root,text='*',padx=30,pady=30,command=mul)
 bdiv=Button(root,text='/',padx=30,pady=30,command=lambda : click('/'))
 bclear=Button(root,text='clear',padx=57,pady=30,command=clear)
 b0['font']=myFont
