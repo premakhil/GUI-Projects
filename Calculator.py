@@ -44,8 +44,9 @@ def add():
     global math
     math='addition'
     n=box.get()
+    
     box.delete(0,last=END)
-    final=int(n)
+    final=float(n)
 
 def sub():
     global final
@@ -53,7 +54,7 @@ def sub():
     math='subtraction'
     n=box.get()
     box.delete(0,last=END)
-    final=int(n)
+    final=float(n)
 
 def mul():
     global final
@@ -61,7 +62,7 @@ def mul():
     math='multiplication'
     n=box.get()
     box.delete(0,last=END)
-    final=int(n)
+    final=float(n)
 
 def div():
     global final
@@ -69,7 +70,7 @@ def div():
     math='division'
     n=box.get()
     box.delete(0,last=END)
-    final=int(n)
+    final=float(n)
 
 
     
@@ -95,7 +96,7 @@ bequal=Button(root,text='=',padx=105,pady=30,command=equal)
 bplus=Button(root,text='+',padx=30,pady=30,command= add)
 bminus=Button(root,text='-',padx=30,pady=30,command=sub)
 bmul=Button(root,text='*',padx=30,pady=30,command=mul)
-bdiv=Button(root,text='/',padx=30,pady=30,command=lambda : click('/'))
+bdiv=Button(root,text='/',padx=30,pady=30,command=div)
 bclear=Button(root,text='clear',padx=57,pady=30,command=clear)
 b0['font']=myFont
 b1['font']=myFont
@@ -134,3 +135,4 @@ bminus.grid(row=4,column=3)
 
 
 root.mainloop()
+
