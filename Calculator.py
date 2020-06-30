@@ -1,7 +1,5 @@
 from tkinter import *
 import tkinter.font as font
-import re
-
 
 root=Tk()
 root.title('Calculator')
